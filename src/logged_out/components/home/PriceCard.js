@@ -27,7 +27,7 @@ const styles = theme => ({
   },
   title: {
     color: theme.palette.primary.main
-  }
+  },
 });
 
 function PriceCard(props) {

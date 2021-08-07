@@ -123,8 +123,8 @@ function HeadSection(props) {
                         <Typography
                           variant={isWidthUp("lg", width) ? "h3" : "h4"}
                         >
-                          Free Template for building a SaaS app using
-                          Material-UI
+                          Bandon Angling Permits
+                          
                         </Typography>
                       </Box>
                       <div>
@@ -143,20 +143,31 @@ function HeadSection(props) {
                           fullWidth
                           className={classes.extraLargeButton}
                           classes={{ label: classes.extraLargeButtonLabel }}
+
+                          // Change to link to Book 
                           href="https://github.com/dunky11/react-saas-template"
                         >
-                          Download from GitHub
+                          Book Now
                         </Button>
                       </div>
                     </Box>
                   </Grid>
                   <Hidden smDown>
                     <Grid item md={6}>
-                      <ZoomImage
+                      {/* <ZoomImage
                         src={`${process.env.PUBLIC_URL}/images/logged_out/headerImage.jpg`}
                         className={classes.image}
                         alt="header example"
                       />
+
+                      <p>Change this to a map of Bandon River spots</p> */}
+                      <iframe 
+                        src="https://www.google.com/maps/d/u/3/embed?mid=1ldkQir0WJtnileC1pjlTQUNWngc" 
+                        width="640" 
+                        height="480"
+                        loading="lazy"
+                      ></iframe>
+                      <p>Bandon Angling </p>
                     </Grid>
                   </Hidden>
                 </Box>

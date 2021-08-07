@@ -32,13 +32,13 @@ function Main(props) {
   const selectHome = useCallback(() => {
     smoothScrollTop();
     document.title =
-      "WaVer - Free template for building a SaaS or admin application";
+      "Bandon Angling Permits";
     setSelectedTab("Home");
   }, [setSelectedTab]);
 
   const selectBlog = useCallback(() => {
     smoothScrollTop();
-    document.title = "WaVer - Blog";
+    document.title = "";
     setSelectedTab("Blog");
   }, [setSelectedTab]);
 
@@ -114,10 +114,10 @@ function Main(props) {
         openRegisterDialog={openRegisterDialog}
         openChangePasswordDialog={openChangePasswordDialog}
       />
-      <CookieRulesDialog
+      {/* <CookieRulesDialog
         open={isCookieRulesDialogOpen}
         onClose={handleCookieRulesDialogClose}
-      />
+      /> */}
       <NavBar
         selectedTab={selectedTab}
         selectTab={setSelectedTab}
