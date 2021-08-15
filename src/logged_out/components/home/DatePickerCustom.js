@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TextField } from "@material-ui/core";
+import { DatePicker } from "@material-ui/pickers";
 
 import {
   Controller,
@@ -8,16 +8,16 @@ import {
   get
 } from "react-hook-form";
 
-export const TextFieldCustom = ({ ...props }) => {
+export const DatePickerCustom = ({ ...props }) => {
   const { meta } = useController(props);
   const { control, formState } = useFormContext();
   const error = get(formState.errors, props.name);
-  const errorText = meta.invalid ? error.message : "";
+  const errorText = meta.invalid ? error.message : "Pick a date";
 
   return (
     <Controller
       {...props}
-      as={TextField}
+      as={DatePicker}
       control={control}
       helperText={errorText ? errorText : props.helperText}
       error={!!errorText}

@@ -13,7 +13,6 @@ import {
   isWidthUp,
 } from "@material-ui/core";
 import WaveBorder from "../../../shared/components/WaveBorder";
-import ZoomImage from "../../../shared/components/ZoomImage";
 
 const styles = (theme) => ({
   extraLargeButtonLabel: {
@@ -166,6 +165,7 @@ function HeadSection(props) {
                         width="640" 
                         height="480"
                         loading="lazy"
+                        title="map"
                       ></iframe>
                       <p>Bandon Angling </p>
                     </Grid>

@@ -5,12 +5,17 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Button from "@material-ui/core/Button";
 import { Box, Paper } from "@material-ui/core";
+
+// Validation
 import * as yup from "yup";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
+// Steps in Form
 import Step1 from "./steps/Step1";
 import Step2 from "./steps/Step2";
 import Step3 from "./steps/Step3";
+import Step4 from "./steps/Step4";
 
 import classNames from "classnames";
 
@@ -47,9 +52,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const defaultValues = {
-  date: "",
+  date: new Date() ,
   address: "",
-  job: ""
+  job: "",
+  terms: ""
 };
 
 function getStepContent(step) {
@@ -61,6 +67,7 @@ function getStepContent(step) {
     case 2:
       return <Step3 />;
     case 3:
+      return <Step4 />
     default:
       return "Unknown step";
   }
@@ -69,11 +76,12 @@ function getStepContent(step) {
 export default function MultiStepForm() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
-  const steps = ["Step1", "Step2", "Step3"];
+  const steps = ["Pick a Date", "Contact Information", "Agree to Terms", "Payment"];
 
   const onSubmit = (data) => {
     console.log(JSON.stringify(data));
     alert(JSON.stringify(data));
+
     handleNext();
   };
 
@@ -81,19 +89,43 @@ export default function MultiStepForm() {
     
     //validation for step1
     yup.object({
-      date: yup.string().required(),
+      date: yup.date().required()
     }),
 
     //validation for step2
     yup.object({
-      address: yup.string().required()
+      name: yup.string(),
+      //.required(),
+
+      address: yup.string(), 
+      // .required(),
+
+      address2: yup.string(),
+      city: yup.string(),
+      //.required(),
+
+      eircode: yup.string(),
+      //.required(),
+      country: yup.string(),
+      //.required(),
+
+      email: yup.string(),
+      //.email().required(),
+
+      phone: yup.number(),
+      //.required(),
+      car: yup.string(),
+      //.required()
     }),
 
     //validation for step3
     yup.object({
-      job: yup.string().required()
+      terms: yup.string().required() 
     })
+
+    //validation for step4
   ];
+  
   const currentValidationSchema = validationSchema[activeStep];
   const methods = useForm({
     shouldUnregister: false,

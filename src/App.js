@@ -5,10 +5,7 @@ import theme from "./theme";
 import GlobalStyles from "./GlobalStyles";
 import Pace from "./shared/components/Pace";
 
-import { useForm, FormContext } from "react-hook-form";
-
-
-const LoggedInComponent = lazy(() => import("./logged_in/components/Main"));
+import { useForm } from "react-hook-form";
 
 const LoggedOutComponent = lazy(() => import("./logged_out/components/Main"));
 
@@ -29,7 +26,7 @@ function App() {
         <Suspense fallback={<Fragment />}>
           <Switch>
             <Route path="/c">
-              <LoggedInComponent />
+           
             </Route>
             <Route>
               <LoggedOutComponent />

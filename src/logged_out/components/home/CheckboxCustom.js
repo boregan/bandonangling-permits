@@ -1,5 +1,6 @@
 import * as React from "react";
-import { TextField } from "@material-ui/core";
+import { Checkbox } from '@material-ui/core';
+
 
 import {
   Controller,
@@ -8,7 +9,7 @@ import {
   get
 } from "react-hook-form";
 
-export const TextFieldCustom = ({ ...props }) => {
+export const CheckboxCustom = ({ ...props }) => {
   const { meta } = useController(props);
   const { control, formState } = useFormContext();
   const error = get(formState.errors, props.name);
@@ -17,11 +18,12 @@ export const TextFieldCustom = ({ ...props }) => {
   return (
     <Controller
       {...props}
-      as={TextField}
+      as={Checkbox}
       control={control}
       helperText={errorText ? errorText : props.helperText}
       error={!!errorText}
       defaultValue={props.defaultValue}
+      required
     />
     
   );
